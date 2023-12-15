@@ -13,4 +13,8 @@ public record Municipio (String codigo, String nombre){
     public String toString() {
         return nombre;
     }
+
+    public String getCodigo() {
+        return codigo;
+    }
 }

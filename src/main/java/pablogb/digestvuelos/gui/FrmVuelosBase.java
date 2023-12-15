@@ -9,37 +9,42 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 import pablogb.digestvuelos.componentes.DatosCompanya;
+import pablogb.digestvuelos.componentes.DatosVueloBase;
 import pablogb.digestvuelos.componentes.EditarCompanya;
+import pablogb.digestvuelos.componentes.EditarVueloBase;
 import pablogb.digestvuelos.dto.Companya;
-import pablogb.digestvuelos.gui.FrmCompanyas;
-import pablogb.digestvuelos.logica.CompanyaTableModel;
+import pablogb.digestvuelos.dto.VueloBase;
+import pablogb.digestvuelos.gui.FrmVuelosBase;
 import pablogb.digestvuelos.logica.LogicaNegocio;
-import pablogb.digestvuelos.logica.CompanyaTableModel;
+import pablogb.digestvuelos.logica.VueloBaseTableModel;
 import pablogb.digestvuelos.logica.LogicaNegocio;
 import pablogb.digestvuelos.readers.CompanyasCsvReader;
+import pablogb.digestvuelos.readers.VuelosBaseCsvReader;
 
 /**
  *
  * @author Pablo
  */
-public class FrmCompanyas extends javax.swing.JFrame {
+public class FrmVuelosBase extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmCompanyas
      */
-    private static final FrmCompanyas INSTANCE = new FrmCompanyas();
+    private static final FrmVuelosBase INSTANCE = new FrmVuelosBase();
 
-    public static FrmCompanyas getInstance() {
+    public static FrmVuelosBase getInstance() {
         return INSTANCE;
     }
+    
+   
 
-    public FrmCompanyas() {
+    public FrmVuelosBase() {
         initComponents();
-        loadCompanies();
+        loadVuelosBase();
     }
 
     public void updateTable() {
-        loadCompanies();
+        loadVuelosBase();
     }
 
     /**
@@ -51,24 +56,11 @@ public class FrmCompanyas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblCompanyas = new javax.swing.JTable();
         btnConsultar = new javax.swing.JButton();
         btnAlta = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
-
-        tblCompanyas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(tblCompanyas);
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblVuelosBase = new javax.swing.JTable();
 
         btnConsultar.setText("Consultar / Editar");
         btnConsultar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,34 +83,47 @@ public class FrmCompanyas extends javax.swing.JFrame {
             }
         });
 
+        tblVuelosBase.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane2.setViewportView(tblVuelosBase);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 701, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(btnConsultar)
                 .addGap(152, 152, 152)
                 .addComponent(btnAlta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                 .addComponent(btnEliminar)
                 .addGap(119, 119, 119))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConsultar)
                     .addComponent(btnAlta)
                     .addComponent(btnEliminar))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
 
         pack();
@@ -127,13 +132,12 @@ public class FrmCompanyas extends javax.swing.JFrame {
 
     private void btnAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAltaActionPerformed
 
-        JFrame frame = new JFrame("Añadir una Nueva Compañia");
-        DatosCompanya datosCompanya = DatosCompanya.getInstance();
+        JFrame frame = new JFrame("Añadir un Nuevo Vuelo Base");
+        DatosVueloBase datosVueloBase = DatosVueloBase.getInstance();
 
-        datosCompanya.setFrmCompanyas(this);
 
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        frame.getContentPane().add(datosCompanya);
+        frame.getContentPane().add(datosVueloBase);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -142,16 +146,16 @@ public class FrmCompanyas extends javax.swing.JFrame {
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
 
-        int fila = tblCompanyas.getSelectedRow();
+        int fila = tblVuelosBase.getSelectedRow();
         if (fila >= 0) {
-            Companya selecCompanya = ((CompanyaTableModel) tblCompanyas.getModel()).lstRegistros.get(fila);
+            VueloBase selecVuelo = ((VueloBaseTableModel) tblVuelosBase.getModel()).lstRegistros.get(fila);
 
-            EditarCompanya editarPanel = EditarCompanya.getInstance();
-            editarPanel.setCompanya(selecCompanya);
+            EditarVueloBase editarPanel = EditarVueloBase.getInstance();
+            editarPanel.setVueloBase(selecVuelo);
 
-            editarPanel.setFrmCompanyas(this);
+            editarPanel.setFrmVuelosBase(this);
 
-            JFrame frame = new JFrame("Editar Compañia");
+            JFrame frame = new JFrame("Editar Vuelo Base");
             frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
             frame.getContentPane().add(editarPanel);
             frame.pack();
@@ -159,21 +163,21 @@ public class FrmCompanyas extends javax.swing.JFrame {
             frame.setVisible(true);
         } else {
 
-            JOptionPane.showMessageDialog(this, "Por favor seleccione una compañia para editar");
+            JOptionPane.showMessageDialog(this, "Por favor seleccione un vuelo para editar");
         }
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        int fila = tblCompanyas.getSelectedRow();
+        int fila = tblVuelosBase.getSelectedRow();
         if (fila >= 0) {
-            Companya companyaAEliminar = ((CompanyaTableModel) tblCompanyas.getModel()).lstRegistros.get(fila);
+            VueloBase vueloAEliminar = ((VueloBaseTableModel) tblVuelosBase.getModel()).lstRegistros.get(fila);
 
-            eliminarCompanyaDelCsv(companyaAEliminar);
+            eliminarVueloBaseDelCsv(vueloAEliminar);
 
-            ((CompanyaTableModel) tblCompanyas.getModel()).lstRegistros.remove(fila);
-            ((CompanyaTableModel) tblCompanyas.getModel()).fireTableDataChanged();
+            ((VueloBaseTableModel) tblVuelosBase.getModel()).lstRegistros.remove(fila);
+            ((VueloBaseTableModel) tblVuelosBase.getModel()).fireTableDataChanged();
         } else {
-            JOptionPane.showMessageDialog(this, "Por favor seleccione una compañia para eliminar.");
+            JOptionPane.showMessageDialog(this, "Por favor seleccione un vuelo para eliminar.");
         }
 
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -196,27 +200,28 @@ public class FrmCompanyas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCompanyas.class
+            java.util.logging.Logger.getLogger(FrmVuelosBase.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCompanyas.class
+            java.util.logging.Logger.getLogger(FrmVuelosBase.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCompanyas.class
+            java.util.logging.Logger.getLogger(FrmVuelosBase.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCompanyas.class
+            java.util.logging.Logger.getLogger(FrmVuelosBase.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCompanyas().setVisible(true);
+                new FrmVuelosBase().setVisible(true);
             }
         });
     }
@@ -226,31 +231,31 @@ public class FrmCompanyas extends javax.swing.JFrame {
     private javax.swing.JButton btnAlta;
     private javax.swing.JButton btnConsultar;
     private javax.swing.JButton btnEliminar;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblCompanyas;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblVuelosBase;
     // End of variables declaration//GEN-END:variables
 
-    private void loadCompanies() {
+    private void loadVuelosBase() {
 
-        List<Companya> listaActualizada = LogicaNegocio.getAllCompanyas();
+        List<VueloBase> listaActualizada = LogicaNegocio.getAllVuelosBase();
 
-        if (tblCompanyas.getModel() instanceof CompanyaTableModel) {
+        if (tblVuelosBase.getModel() instanceof VueloBaseTableModel) {
 
-            CompanyaTableModel model = (CompanyaTableModel) tblCompanyas.getModel();
+            VueloBaseTableModel model = (VueloBaseTableModel) tblVuelosBase.getModel();
             model.lstRegistros = listaActualizada;
             model.fireTableDataChanged();
         } else {
-            tblCompanyas.setModel(new CompanyaTableModel(listaActualizada));
+            tblVuelosBase.setModel(new VueloBaseTableModel(listaActualizada));
         }
     }
 
-    private void eliminarCompanyaDelCsv(Companya companyaAEliminar) {
-        CompanyasCsvReader csvReader = new CompanyasCsvReader();
-        List<Companya> companyas = csvReader.readCompanyas();
+    private void eliminarVueloBaseDelCsv(VueloBase vueloBaseAEliminar) {
+        VuelosBaseCsvReader csvReader = new VuelosBaseCsvReader();
+        List<VueloBase> vuelos = csvReader.readVuelosBase();
 
-        companyas.removeIf(comp -> comp.getCodigo().equals(companyaAEliminar.getCodigo()));
+        vuelos.removeIf(comp -> comp.getCodigoVuelo().equals(vueloBaseAEliminar.getCodigoVuelo()));
 
-        LogicaNegocio.escribirCompanyasCsv(companyas);
+        LogicaNegocio.escribirVuelosBaseCsv(vuelos);
         
         updateTable();
         

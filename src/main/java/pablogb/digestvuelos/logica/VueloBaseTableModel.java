@@ -5,35 +5,37 @@
 package pablogb.digestvuelos.logica;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
-import pablogb.digestvuelos.dto.Companya;
+import pablogb.digestvuelos.dto.VueloBase;
 
 /**
  *
  * @author Pablo
  */
-public class CompanyaTableModel extends AbstractTableModel {
+public class VueloBaseTableModel extends AbstractTableModel {
 
-    public List<Companya> lstRegistros;
+    public List<VueloBase> lstRegistros;
     ArrayList<String> columnNames;
     ArrayList<Class> columnClasses;
 
-    public CompanyaTableModel(List<Companya> lstRegistros) {
+    public VueloBaseTableModel(List<VueloBase> lstRegistros) {
+
         this.lstRegistros = lstRegistros;
         columnClasses = new ArrayList<>();
         columnNames = new ArrayList<>();
-        columnNames.add("Prefijo");
-        columnNames.add("Código");
-        columnNames.add("Nombre");
-        columnNames.add("Direccion");
-        columnNames.add("Municipios");
-        columnNames.add("Tel. Pasajeros");
-        columnNames.add("Tel. Información");
+        columnNames.add("Codigo Vuelo");
+        columnNames.add("Nº Plazas");
+        columnNames.add("H. Salida");
+        columnNames.add("H. Llegada");
+        columnNames.add("Dias Operacion");
+        columnNames.add("Aeropuerto Origen");
+        columnNames.add("Aeropuerto Destino");
         columnClasses.add(String.class);
-        columnClasses.add(String.class);
-        columnClasses.add(String.class);
-        columnClasses.add(String.class);
+        columnClasses.add(int.class);
+        columnClasses.add(Date.class);
+        columnClasses.add(Date.class);
         columnClasses.add(String.class);
         columnClasses.add(String.class);
         columnClasses.add(String.class);
@@ -51,25 +53,25 @@ public class CompanyaTableModel extends AbstractTableModel {
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Companya current = lstRegistros.get(rowIndex);
+        VueloBase current = lstRegistros.get(rowIndex);
         if (current != null
                 && columnIndex >= 0
                 && columnIndex < getColumnCount()) {
             switch (columnIndex) {
                 case 0:
-                    return current.getPrefijo();
+                    return current.getCodigoVuelo();
                 case 1:
-                    return current.getCodigo();
+                    return current.getNumeroPlazas();
                 case 2:
-                    return current.getNombre();
+                    return current.getHoraSalida();
                 case 3:
-                    return current.getDireccion();
+                    return current.getHoraLlegada();
                 case 4:
-                    return current.getMunicipio();
+                    return current.getDiasOperacion();
                 case 5:
-                    return current.getTelefonoPasajeros();
+                    return current.getAeropuertoOrigen().getNombre();
                 case 6:
-                    return current.getTelefonoInformacion();
+                    return current.getAeropuertoDestino().getNombre();
                 default:
                     return "";
             }

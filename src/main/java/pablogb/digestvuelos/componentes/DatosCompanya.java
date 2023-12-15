@@ -214,10 +214,10 @@ public class DatosCompanya extends javax.swing.JPanel {
         MunicipiosCsvReader reader = new MunicipiosCsvReader();
         List<Municipio> municipios = reader.readMunicipios();
 
-        cbMunicipios.removeAllItems(); // Limpia el JComboBox antes de añadir nuevos elementos
+        cbMunicipios.removeAllItems();
 
         for (Municipio municipio : municipios) {
-            cbMunicipios.addItem(municipio); // Añade el nombre al JComboBox
+            cbMunicipios.addItem(municipio); 
         }
     }
 

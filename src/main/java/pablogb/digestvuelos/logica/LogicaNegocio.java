@@ -20,6 +20,8 @@ import pablogb.digestvuelos.dto.Municipio;
 import pablogb.digestvuelos.dto.VueloBase;
 import pablogb.digestvuelos.dto.VueloDiario;
 import pablogb.digestvuelos.readers.CompanyasCsvReader;
+import pablogb.digestvuelos.readers.MunicipiosCsvReader;
+import pablogb.digestvuelos.readers.VuelosBaseCsvReader;
 
 /**
  *
@@ -38,12 +40,22 @@ public class LogicaNegocio {
     private static List<Municipio> lstMunicipios = new ArrayList<>();
 
     private static void initializeMunicipios() {
-        lstMunicipios.add(new Municipio("02003", "Albacete"));
-        lstMunicipios.add(new Municipio("33044", "Oviedo"));
-        lstMunicipios.add(new Municipio("33016", "Castrillón"));
-        lstMunicipios.add(new Municipio("24139", "Valverde de la Virgen"));
-        lstMunicipios.add(new Municipio("24089", "León"));
-        lstMunicipios.add(new Municipio("28079", "Madrid"));
+        MunicipiosCsvReader reader = new MunicipiosCsvReader();
+        List<Municipio> municipio = reader.readMunicipios();
+        if (municipio.size() > 1) {
+            for (int i = 1; i < municipio.size(); i++) {
+                lstMunicipios.add(municipio.get(i));
+            }
+        }
+    }
+
+    public static Municipio MunicipioByCod(String codigo) {
+        for (Municipio municipio : lstMunicipios) {
+            if (municipio.getCodigo().equals(codigo)) {
+                return municipio;
+            }
+        }
+        return null;
     }
 
     public static List<Municipio> getAllMunicipios() {
@@ -105,7 +117,7 @@ public class LogicaNegocio {
     public static List<Companya> getAllCompanyas() {
         lstCompanyas.clear();
         initializeCompanyas();
-        
+
         return lstCompanyas;
     }
 
@@ -163,9 +175,9 @@ public class LogicaNegocio {
         Companya delComp = getCompanyaByCodigo(codigo);
         if (delComp != null) {
             lstCompanyas.remove(delComp);
-        } 
+        }
     }
-    
+
     public static void escribirCompanyasCsv(List<Companya> companyas) {
         try (FileWriter fw = new FileWriter("./src/main/resources/Companyas.csv")) {
             for (Companya comp : companyas) {
@@ -179,7 +191,20 @@ public class LogicaNegocio {
     //Logica de vuelo base
     private static List<VueloBase> lstVuelosBase = new ArrayList<VueloBase>();
 
+    private static void initializeVueloBase() {
+        VuelosBaseCsvReader reader = new VuelosBaseCsvReader();
+        List<VueloBase> vuelosBase = reader.readVuelosBase();
+        if (vuelosBase.size() >= 1) {
+            for (int i = 0; i < vuelosBase.size(); i++) {
+                lstVuelosBase.add(vuelosBase.get(i));
+            }
+        }
+    }
+
     public static List<VueloBase> getAllVuelosBase() {
+        lstVuelosBase.clear();
+        initializeVueloBase();
+
         return lstVuelosBase;
     }
 
@@ -270,6 +295,18 @@ public class LogicaNegocio {
             oldVuelo.setHoraLlegada(newVuelo.getHoraLlegada());
             oldVuelo.setHoraSalida(newVuelo.getHoraSalida());
             oldVuelo.setNumeroPlazas(newVuelo.getNumeroPlazas());
+        }
+    }
+
+    public static void escribirVuelosBaseCsv(List<VueloBase> vuelos) {
+        String encabezado = "CODIGOVUELO;NUMEROPLAZAS;HORASALIDA;HORALLEGADA;DIASOPERACION;CODIGOAEROPUERTOORIGEN;CODIGOAEROPUERTODESTINO";
+        try (FileWriter fw = new FileWriter("./src/main/resources/VuelosBase.csv")) {
+            fw.write(encabezado + "\n");
+            for (VueloBase v : vuelos) {
+                fw.write(v.toCsvString() + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

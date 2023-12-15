@@ -4,10 +4,8 @@
  */
 package pablogb.digestvuelos.componentes;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.SwingUtilities;
 import pablogb.digestvuelos.logica.LogicaNegocio;
 import pablogb.digestvuelos.dto.Companya;
@@ -41,14 +39,32 @@ public class EditarCompanya extends javax.swing.JPanel {
     public void setCompanya(Companya comp) {
         this.companya = comp;
         if (!companya.getCodigo().isBlank()) {
+            
             txtPrefijo.setText(comp.getPrefijo());
             txtCodigo.setText(comp.getCodigo());
             txtNombre.setText(comp.getNombre());
             txtDireccion.setText(comp.getDireccion());
+            
+            Municipio municipioOb = LogicaNegocio.MunicipioByCod(companya.getMunicipio());
+            selecCbMunicipio(cbMunicipios, municipioOb);
+            
             txtTlfInfoAeropuerto.setText(comp.getTelefonoInformacion());
             txtTlfInfoPasajero.setText(comp.getTelefonoPasajeros());
         }
     }
+    
+    private void selecCbMunicipio(JComboBox<Municipio> comboBox, Municipio municipio) {
+        if (municipio != null) {
+            String codigoMunicipio = municipio.getCodigo();
+        for (int i = 0; i < comboBox.getItemCount(); i++) {
+            Municipio item = comboBox.getItemAt(i);
+            if (item.getCodigo().equals(codigoMunicipio)) {
+                comboBox.setSelectedIndex(i);
+                break;
+            }
+        }
+    }
+}
 
     private static final EditarCompanya INSTANCE = new EditarCompanya();
 
@@ -214,10 +230,8 @@ public class EditarCompanya extends javax.swing.JPanel {
         MunicipiosCsvReader reader = new MunicipiosCsvReader();
         List<Municipio> municipios = reader.readMunicipios();
 
-        cbMunicipios.removeAllItems(); // Limpia el JComboBox antes de añadir nuevos elementos
-
         for (Municipio municipio : municipios) {
-            cbMunicipios.addItem(municipio); // Añade el nombre al JComboBox
+            cbMunicipios.addItem(municipio);
         }
     }
 
@@ -246,10 +260,7 @@ public class EditarCompanya extends javax.swing.JPanel {
     private javax.swing.JTextField txtTlfInfoAeropuerto;
     private javax.swing.JTextField txtTlfInfoPasajero;
     // End of variables declaration//GEN-END:variables
-    private void fillMunicipios() {
-        LogicaNegocio.getAllMunicipios().forEach(m -> cbMunicipios.addItem(m));
-    }
-
+   
     private void editarDatosCsv() {
         CompanyasCsvReader csvReader = new CompanyasCsvReader();
         List<Companya> todasLasCompanyas = csvReader.readCompanyas();
@@ -262,6 +273,10 @@ public class EditarCompanya extends javax.swing.JPanel {
                 compActualizada.setCodigo(txtCodigo.getText());
                 compActualizada.setNombre(txtNombre.getText());
                 compActualizada.setDireccion(txtDireccion.getText());
+                
+                Municipio municipio=(Municipio) cbMunicipios.getSelectedItem();
+                compActualizada.setMunicipio(municipio.getCodigo());
+                
                 compActualizada.setTelefonoInformacion(txtTlfInfoAeropuerto.getText());
                 compActualizada.setTelefonoPasajeros(txtTlfInfoPasajero.getText());
 

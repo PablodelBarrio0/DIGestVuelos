@@ -63,6 +63,9 @@
         <Property name="text" type="java.lang.String" value="Vuelos base"/>
         <Property name="actionCommand" type="java.lang.String" value="btnVuelosBaseCommand"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVuelosBaseActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnVuelosDiarios">
       <Properties>

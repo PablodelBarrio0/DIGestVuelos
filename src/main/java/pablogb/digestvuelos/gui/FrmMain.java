@@ -32,7 +32,7 @@ public class FrmMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-    	btnCompanyas = new javax.swing.JButton();
+        btnCompanyas = new javax.swing.JButton();
         btnPaneles = new javax.swing.JButton();
         btnVuelosBase = new javax.swing.JButton();
         btnVuelosDiarios = new javax.swing.JButton();
@@ -64,6 +64,11 @@ public class FrmMain extends javax.swing.JFrame {
         btnVuelosBase.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         btnVuelosBase.setText("Vuelos base");
         btnVuelosBase.setActionCommand("btnVuelosBaseCommand");
+        btnVuelosBase.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVuelosBaseActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnVuelosBase);
 
         btnVuelosDiarios.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -91,6 +96,10 @@ public class FrmMain extends javax.swing.JFrame {
     private void btnCompanyasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompanyasActionPerformed
         FrmCompanyas.getInstance().setVisible(true);
     }//GEN-LAST:event_btnCompanyasActionPerformed
+
+    private void btnVuelosBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVuelosBaseActionPerformed
+        FrmVuelosBase.getInstance().setVisible(true);
+    }//GEN-LAST:event_btnVuelosBaseActionPerformed
 
     /**
      * @param args the command line arguments

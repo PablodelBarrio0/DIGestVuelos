@@ -9,7 +9,7 @@ package pablogb.digestvuelos.dto;
  * @author Pablo 
  */
 public class Aeropuerto {
-    private int id;
+    private String id;
     private String codigoIATA;
     private String nombre;
     private String codMunicipio;
@@ -18,11 +18,11 @@ public class Aeropuerto {
        
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -50,7 +50,7 @@ public class Aeropuerto {
         this.codMunicipio = codMunicipio;
     }
 
-    public Aeropuerto(int id, String codigoIATA, String nombre, String codMunicipio) {
+    public Aeropuerto(String id, String codigoIATA, String nombre, String codMunicipio) {
         this.id = id;
         this.codigoIATA = codigoIATA;
         this.nombre = nombre;
@@ -65,6 +65,10 @@ public class Aeropuerto {
     
     private boolean isInternacional(){
         return this.getCodMunicipio().equals("00000"); 
+    }
+    
+    public String toString() {
+        return nombre;
     }
     
     

@@ -4,7 +4,7 @@
  */
 package pablogb.digestvuelos.dto;
 
-import java.util.Date;
+import java.time.LocalTime;
 import pablogb.digestvuelos.logica.LogicaNegocio;
 
 /**
@@ -14,8 +14,8 @@ import pablogb.digestvuelos.logica.LogicaNegocio;
 public class VueloBase {
     private String codigoVuelo;
     private int numeroPlazas;
-    private Date horaSalida;
-    private Date horaLlegada;
+    private LocalTime horaSalida;
+    private LocalTime horaLlegada;
     private String diasOperacion;
     private String codigoAeropuertoOrigen;
     private String codigoAeropuertoDestino;
@@ -25,7 +25,7 @@ public class VueloBase {
     public VueloBase() {
     }
 
-    public VueloBase(String codigoVuelo, int numeroPlazas, Date horaSalida, Date horaLlegada, String diasOperacion, String codigoAeropuertoOrigen, String codigoAeropuertoDestino) {
+    public VueloBase(String codigoVuelo, int numeroPlazas, LocalTime horaSalida, LocalTime horaLlegada, String diasOperacion, String codigoAeropuertoOrigen, String codigoAeropuertoDestino) {
         this.codigoVuelo = codigoVuelo;
         this.numeroPlazas = numeroPlazas;
         this.horaSalida = horaSalida;
@@ -35,7 +35,7 @@ public class VueloBase {
         this.setCodigoAeropuertoDestino(codigoAeropuertoDestino);
     }
 
-    public VueloBase(String codigoVuelo, int numeroPlazas, Date horaSalida, Date horaLlegada, String diasOperacion, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino) {
+    public VueloBase(String codigoVuelo, int numeroPlazas, LocalTime horaSalida, LocalTime horaLlegada, String diasOperacion, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino) {
         this.codigoVuelo = codigoVuelo;
         this.numeroPlazas = numeroPlazas;
         this.horaSalida = horaSalida;
@@ -62,19 +62,19 @@ public class VueloBase {
         this.numeroPlazas = numeroPlazas;
     }
 
-    public Date getHoraSalida() {
+    public LocalTime getHoraSalida() {
         return horaSalida;
     }
 
-    public void setHoraSalida(Date horaSalida) {
+    public void setHoraSalida(LocalTime horaSalida) {
         this.horaSalida = horaSalida;
     }
 
-    public Date getHoraLlegada() {
+    public LocalTime getHoraLlegada() {
         return horaLlegada;
     }
 
-    public void setHoraLlegada(Date horaLlegada) {
+    public void setHoraLlegada(LocalTime horaLlegada) {
         this.horaLlegada = horaLlegada;
     }
 
@@ -123,6 +123,8 @@ public class VueloBase {
     }
     
     
-    
+    public String toCsvString() {
+        return codigoVuelo + ";" + numeroPlazas + ";" + horaSalida + ";" + horaLlegada+";"+diasOperacion+";"+codigoAeropuertoOrigen+";"+codigoAeropuertoDestino ;
+    }
     
 }

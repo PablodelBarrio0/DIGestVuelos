@@ -24,12 +24,7 @@ public class DIGestVuelos {
         
         List<Companya> lista=LogicaNegocio.getAllCompanyas();
         List<Companya> compMadrid=LogicaNegocio.getCompanyasByMunicipio("28079");
-        LogicaNegocio.addVueloBase(
-                new VueloBase("IB123", 3, 
-                        new Date(), new Date(), 
-                        "LXVS",
-                        aeropuertoBase.getCodigoIATA(), 
-                        "ABC"));
+        
         
         //List<VueloBase> listavuelos=LogicaNegocio.getAllVuelosBase();
         

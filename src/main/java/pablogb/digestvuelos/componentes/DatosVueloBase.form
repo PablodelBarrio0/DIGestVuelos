@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace pref="408" max="32767" attributes="0"/>
+              <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="392" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="lblCodVuelo" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAerOrigen" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHoraLlegada" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHoraSalida" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblNumPlazas" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblAerDestino" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDiasOperacion" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="txtDiasOperacion" max="32767" attributes="0"/>
+                      <Component id="cbAerOrigen" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtCodVuelo" alignment="0" max="32767" attributes="0"/>
+                      <Component id="txtHoraLlegada" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                      <Component id="cbAerDestino" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <Component id="txtHoraSalida" alignment="0" min="-2" pref="234" max="-2" attributes="0"/>
+                  <Component id="txtNumPlazas" min="-2" pref="234" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace pref="42" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtCodVuelo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblCodVuelo" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
+                      <Component id="lblNumPlazas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="txtNumPlazas" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txtHoraSalida" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lblHoraSalida" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtHoraLlegada" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblHoraLlegada" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="txtDiasOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblDiasOperacion" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAerOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbAerOrigen" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblAerDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cbAerDestino" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+              <Component id="btnGuardar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="lblNumPlazas">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="N&#xba; de Plazas"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblHoraSalida">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hora de Salida (HH:mm)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblHoraLlegada">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Hora de Llegada (HH:mm)"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAerOrigen">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cod Aeropuerto Origen"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblAerDestino">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cod Aeropuerto Destino"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtNumPlazas">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumPlazasActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtHoraSalida">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbAerOrigen">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbAerOrigenActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Aeropuerto&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnGuardar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Guardar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblCodVuelo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="C&#xf3;digo de Vuelo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtCodVuelo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtHoraLlegada">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblDiasOperacion">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="D&#xed;as de Operaci&#xf3;n"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDiasOperacion">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cbAerDestino">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbAerDestinoActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Aeropuerto&gt;"/>
+      </AuxValues>
+    </Component>
+  </SubComponents>
+</Form>
